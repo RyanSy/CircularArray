@@ -1,9 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class CircularArrayTest {
 
@@ -11,6 +9,10 @@ public class CircularArrayTest {
 
     @Test
     public void rotateRightTest() {
+        /*
+        * Create ArrayList: [1, 2, 3, 4, 5]
+        * This is the array we will rotate
+        * */
         List<Integer> arr = new ArrayList<>();
         arr.add(1);
         arr.add(2);
@@ -18,20 +20,32 @@ public class CircularArrayTest {
         arr.add(4);
         arr.add(5);
 
-        List<Integer> goRight = new ArrayList<>();
-        goRight.add(4);
-        goRight.add(5);
-        goRight.add(1);
-        goRight.add(2);
-        goRight.add(3);
+        /*
+        * Create ArrayList shifting elements 2 spaces to the right: [4, 5, 1, 2, 3]
+        * This is what we want our result to be
+        * */
+        List<Integer> expectedArr = new ArrayList<>();
+        expectedArr.add(4);
+        expectedArr.add(5);
+        expectedArr.add(1);
+        expectedArr.add(2);
+        expectedArr.add(3);
 
-        List<Integer> rotateRight = ca.rotate(arr, 2, "right");
+        /*
+        * Rotate ArrayList arr to return [4, 5, 1, 2, 3]
+        * If ArrayList arr was a circle, it would be rotating clockwise
+        * */
+        List<Integer> rotateArrRight = ca.rotate(arr, 2, "right");
 
-        assertEquals(goRight, rotateRight);
+        assertEquals(expectedArr, rotateArrRight);
     }
 
     @Test
     public void rotateLeftTest() {
+        /*
+         * Create ArrayList: [1, 2, 3, 4, 5]
+         * This is the array we will rotate
+         * */
         List<Integer> arr = new ArrayList<>();
         arr.add(1);
         arr.add(2);
@@ -39,15 +53,23 @@ public class CircularArrayTest {
         arr.add(4);
         arr.add(5);
 
-        List<Integer> goLeft = new ArrayList<>();
-        goLeft.add(3);
-        goLeft.add(4);
-        goLeft.add(5);
-        goLeft.add(1);
-        goLeft.add(2);
+        /*
+         * Create ArrayList shifting elements 2 spaces to the left: [3, 4, 5, 1, 2]
+         * This is what we want our result to be
+         * */
+        List<Integer> expectedArr = new ArrayList<>();
+        expectedArr.add(3);
+        expectedArr.add(4);
+        expectedArr.add(5);
+        expectedArr.add(1);
+        expectedArr.add(2);
 
+        /*
+         * Rotate ArrayList arr to return [3, 4, 5, 1, 2]
+         * If ArrayList arr was a circle, it would be rotating counter-clockwise
+         * */
         List<Integer> rotateLeft = ca.rotate(arr, 2, "left");
 
-        assertEquals(goLeft, rotateLeft);
+        assertEquals(expectedArr, rotateLeft);
     }
 }

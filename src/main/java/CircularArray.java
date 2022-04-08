@@ -20,11 +20,17 @@ public class CircularArray<T> {
         if (d.equals("left")) {
             reverse(arr, 0, arrLength - 1); // reverse all elements - [5, 4, 3, 2, 1]
             reverse(arr, 0, n); // reverse elements from index 0 to 2 - [3, 4, 5, 2, 1]
-            reverse(arr, (n + 1), (arrLength - 1)); // reverse elements from index 3 to 3 - [4, 5, 3, 1, 2]
+            reverse(arr, (n + 1), (arrLength - 1)); // reverse elements from index 3 to 3 - [3, 4, 5, 1, 2]
         }
         return arr;
     }
 
+    /*
+    * @desc Reverses an array at start/end indexes
+    * @param {arr} The array to reverse
+    * @param {start} Index where array reversal starts
+    * @param {end} Index where array reversal ends
+    * */
     public void reverse(List<T> arr, int start, int end) {
         while (start < end) {
             T temp = arr.get(start);
